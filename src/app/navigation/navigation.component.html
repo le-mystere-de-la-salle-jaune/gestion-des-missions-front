@@ -2,14 +2,16 @@
   <div class="row">
     <div class="col-9">
         <div class="container" ng-controller="HeaderController">
-            <nav class="border border-dark mb-3">
+            <nav class="mb-3">
+              <div class="row">
                 <!-- la classe CSS active-link est ajouté à l'élément lorsque la route désignée est active -->
-                <a routerLink="/tech" routerLinkActive="active-link" > Acceuil  </a>
-                <a routerLink="/gestion-missions" routerLinkActive="active-link" > Gestion des missions </a>
-                <a routerLink="/planning-missions" routerLinkActive="active-link" > Planning des missions </a>
-                <a routerLink="/primes" routerLinkActive="active-link" > Primes  </a>
-                <a routerLink="/saisie-frais" routerLinkActive="active-link" > Saisie note de frais </a>
-                <a routerLink="/nature-missions" routerLinkActive="active-link" > Nature de mission </a>
+                <div class="col border"><a routerLink="/tech" routerLinkActive="active-link" > Acceuil  </a></div>
+                <div class="col border"><a routerLink="/gestion-missions" routerLinkActive="active-link" > Gestion des missions </a></div>
+                <div class="col border"><a routerLink="/planning-missions" routerLinkActive="active-link" > Planning des missions </a></div>
+                <div class="col border"><a routerLink="/primes" routerLinkActive="active-link" > Primes  </a></div>
+                <div class="col border"><a routerLink="/saisie-frais" routerLinkActive="active-link" > Saisie note de frais </a></div>
+                <div class="col border"><a routerLink="/nature-missions" routerLinkActive="active-link" > Nature de mission </a></div>
+              </div>
             </nav>
         </div>
     </div>
