@@ -1,0 +1,32 @@
+<app-navigation></app-navigation>
+<h1>
+  Nature de mission
+</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nature</th>
+        <th scope="col">Facturée</th>
+        <th scope="col">Prime</th>
+        <th scope="col">TJM(€)</th>
+        <th scope="col">%Prime</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let n of natures">
+        <td>{{n.libelle}}</td>
+        <td>{{n.facturee}}</td>
+        <td>{{n.prime}}</td>
+        <td>{{n.tjm}}</td>
+        <td>{{n.tauxPrime}}</td>
+        <td>À ajouter</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="container">
+      <div class="row">
+          <div class="col"><h2>Ajouter une nature de mission</h2></div>
+          <div class="col"><button class="btn btn-primary" type="submit">+</button></div>
+      </div>
+  </div>

@@ -10,10 +10,21 @@ import { AuthComponent } from './auth/auth.component';
 import {FormsModule} from "@angular/forms";
 import {StatutConnecteService} from "./auth/statut-connecte.service";
 import {AuthInterceptorService} from "./auth/auth-interceptor.service";
+import { NavigationComponent } from './navigation/navigation.component';
+import { GestionMissionsComponent } from './gestion-missions/gestion-missions.component';
+import { PlanningMissionsComponent } from './planning-missions/planning-missions.component';
+import { PrimesComponent } from './primes/primes.component';
+import { SaisieFraisComponent } from './saisie-frais/saisie-frais.component';
+import { NatureMissionsComponent } from './nature-missions/nature-missions.component';
 
 const routes: Routes = [
   { path:'tech', component: TechComponent, canActivate:[StatutConnecteService]},
   { path:'auth', component: AuthComponent},
+  { path: 'gestion-missions', component: GestionMissionsComponent },
+  { path: 'planning-missions', component: PlanningMissionsComponent },
+  { path: 'primes', component: PrimesComponent},
+  { path: 'saisie-frais', component: SaisieFraisComponent },
+  { path: 'nature-missions', component: NatureMissionsComponent},
   { path: '', redirectTo: '/tech', pathMatch: 'full'}
 ];
 
@@ -22,7 +33,13 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     TechComponent,
-    AuthComponent
+    AuthComponent,
+    NavigationComponent,
+    GestionMissionsComponent,
+    PlanningMissionsComponent,
+    PrimesComponent,
+    SaisieFraisComponent,
+    NatureMissionsComponent
   ],
   imports: [
     BrowserModule,

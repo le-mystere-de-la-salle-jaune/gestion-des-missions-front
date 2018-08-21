@@ -10,6 +10,8 @@ import {BackendLink} from "./tech.domains";
 @Component({
   selector: 'app-tech',
   template: `
+
+    <app-navigation></app-navigation>
     <mdb-card class="animated zoomIn">
       <mdb-card-header class="primary-color white-text">
         <h4>Informations techniques du backend</h4>
