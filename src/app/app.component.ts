@@ -2,7 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {AuthService} from "./auth/auth.service";
 import {Router} from "@angular/router";
 import {Observable} from "rxjs/internal/Observable";
-import {Collegue} from "./auth/auth.domains";
+import {Collaborateur} from "./auth/auth.domains";
 
 /**
  * Composant principal de l'application.
@@ -12,9 +12,10 @@ import {Collegue} from "./auth/auth.domains";
   template: `
     <div class="jumbotron">
       <h2 class="h1 h1-responsive">Super Application</h2>
-      <div *ngIf="!(collegueConnecte | async).estAnonyme()">
-        <span>{{(collegueConnecte | async).email}}</span>
-        <span>({{(collegueConnecte | async).roles}})</span>
+      
+      <div *ngIf="!(collaborateurConnecte | async).estAnonyme()">
+        <span>{{(collaborateurConnecte | async).email}}</span>
+        <span>({{(collaborateurConnecte | async).roles}})</span>
         <a  class="btn btn-danger" (click)="seDeconnecter()">Se déconnecter</a>
       </div>
     </div>
@@ -24,7 +25,7 @@ import {Collegue} from "./auth/auth.domains";
 })
 export class AppComponent implements OnInit {
 
-  collegueConnecte:Observable<Collegue>;
+  collaborateurConnecte:Observable<Collaborateur>;
 
   constructor(private _authSrv:AuthService, private _router:Router) {
 
@@ -46,7 +47,7 @@ export class AppComponent implements OnInit {
    */
   ngOnInit(): void {
 
-    this.collegueConnecte = this._authSrv.collegueConnecteObs;
+    this.collaborateurConnecte = this._authSrv.collaborateurConnecteObs;
   }
 
 }

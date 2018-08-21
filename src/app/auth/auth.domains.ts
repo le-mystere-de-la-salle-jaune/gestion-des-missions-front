@@ -1,7 +1,7 @@
 /**
  * Collègue utilisateur de l'application.
  */
-export class Collegue {
+export class Collaborateur {
   nom:string;
   prenom:string;
   email:string;
