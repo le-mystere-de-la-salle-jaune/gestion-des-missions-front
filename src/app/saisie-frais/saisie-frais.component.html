@@ -1,4 +1,28 @@
 <app-navigation></app-navigation>
-<p>
-  saisie-frais works!
-</p>
+<h1>Saisie note de frais</h1>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Date de début</th>
+        <th scope="col">Date de fin</th>
+        <th scope="col">Nature</th>
+        <th scope="col">Départ</th>
+        <th scope="col">Arrivée</th>
+        <th scope="col">Transport</th>
+        <th scope="col">Frais</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let n of notes">
+        <td>{{n.dateDebut}}</td>
+        <td>{{n.dateFin}}</td>
+        <td>{{n.nature}}</td>
+        <td>{{n.depart}}</td>
+        <td>{{n.arrivee}}</td>
+        <td>{{n.transport}}</td>
+        <td>{{n.frais}} €</td>
+        <td>À ajouter</td>
+      </tr>
+    </tbody>
+  </table>

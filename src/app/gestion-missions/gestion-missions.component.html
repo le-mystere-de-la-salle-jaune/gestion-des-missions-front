@@ -1,4 +1,37 @@
 <app-navigation></app-navigation>
-<p>
-  gestion-missions works!
-</p>
+<h1>
+  Gestion des missions
+</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Date de début</th>
+      <th scope="col">Date de fin</th>
+      <th scope="col">Nature</th>
+      <th scope="col">Départ</th>
+      <th scope="col">Arrivée</th>
+      <th scope="col">Transport</th>
+      <th scope="col">Statut</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let m of missions">
+      <td>{{m.dateDebut}}</td>
+      <td>{{m.dateFin}}</td>
+      <td>{{m.nature}}</td>
+      <td>{{m.depart}}</td>
+      <td>{{m.arrivee}}</td>
+      <td>{{m.transport}}</td>
+      <td>{{m.statut}}</td>
+      <td>À ajouter</td>
+    </tr>
+  </tbody>
+</table>
+<div class="container">
+  <div class="row">
+      <div class="col"><h2>Demander une mission</h2></div>
+      <div class="col"><button class="btn btn-primary" type="submit">+</button></div>
+  </div>
+</div>
