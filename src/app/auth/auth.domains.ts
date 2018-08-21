@@ -17,3 +17,11 @@ export class Collaborateur {
   }
 
 }
+
+/**
+ * Nature d'une mission
+ */
+export class NatureMission{
+  constructor( public id:number, public libelle:string, public facturee:boolean, public versementPrime:boolean, public tjm:number, public pourcentage:number ){}
+
+}
