@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NatureMissionService } from '../nature-mission.service';
+import { NatureMision } from '../../domains';
 
 @Component({
   selector: 'app-nature-missions',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NatureMissionsComponent implements OnInit {
 
-  constructor() { }
+  listeNatureMisions:NatureMision[]=[]
+
+  constructor(private service:NatureMissionService) { 
+
+    service.NatureMissionListe().then((NatureMisions:any) => {
+      NatureMisions.forEach(NatureMision => {
+        this.listeNatureMisions.push(NatureMision);
+      });
+    });
+
+  }
 
   ngOnInit() {
   }
+
 
 }
