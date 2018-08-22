@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NatureMissionService } from '../nature-mission.service';
 import { NatureMision } from '../../domains';
 
+
 @Component({
   selector: 'app-nature-missions',
   templateUrl: './nature-missions.component.html',
@@ -9,7 +10,8 @@ import { NatureMision } from '../../domains';
 })
 export class NatureMissionsComponent implements OnInit {
 
-  listeNatureMisions:NatureMision[]=[]
+  listeNatureMisions:NatureMision[]=[];
+  NMaModifier:NatureMision=null;
 
   constructor(private service:NatureMissionService) { 
 
@@ -24,5 +26,10 @@ export class NatureMissionsComponent implements OnInit {
   ngOnInit() {
   }
 
+  natureModification( n:number){
+
+  
+
+  }
 
 }

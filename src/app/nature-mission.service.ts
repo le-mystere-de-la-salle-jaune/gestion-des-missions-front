@@ -18,7 +18,15 @@ export class NatureMissionService {
   {
    return this._http.get(`${URL_BACKEND}api/natureMission`)
             .toPromise()
-            .then((data: any) => data.map(el => new NatureMision(el.id,el.libelle,el.facturee,el.versementPrime,el.tjm,el.pourcentage)));
+            .then((data: any) => data.map(el => new NatureMision(el.id,el.libelle,this.translatebooltoyes(el.facturee),this.translatebooltoyes(el.versementPrime),el.tjm,el.pourcentage)));
   } 
+
+  translatebooltoyes(bool:boolean):string{
+    if(bool){
+      return "OUI"
+    }else{
+      return "NON"
+    }
+  }
 
 }
