@@ -10,12 +10,13 @@
                 <div class="col border"><a routerLink="/planning-missions" routerLinkActive="active-link" > Planning des missions </a></div>
                 <div class="col border"><a routerLink="/primes" routerLinkActive="active-link" > Primes  </a></div>
                 <div class="col border"><a routerLink="/saisie-frais" routerLinkActive="active-link" > Saisie note de frais </a></div>
-                <div class="col border"><a routerLink="/nature-missions" routerLinkActive="active-link" > Nature de mission </a></div>
+                <div *ngIf="testAdmin" class="col border"><a routerLink="/nature-missions" routerLinkActive="active-link" > Nature de mission </a></div>
+                <div *ngIf="testManager" class="col border"><a routerLink="/valider-missions" routerLinkActive="active-link" > Validation des missions </a></div>
               </div>
             </nav>
         </div>
     </div>
-    <div class="col-1"><p class="text-right">Bonjour {{prenom}} <a href="">Se déconnecter</a></p></div>
+    <div class="col-1"><p class="text-right">Bonjour {{prenom}} </div>
   </div>
 </div>
 
