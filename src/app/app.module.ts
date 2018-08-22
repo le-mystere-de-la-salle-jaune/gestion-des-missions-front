@@ -16,6 +16,7 @@ import { PlanningMissionsComponent } from './planning-missions/planning-missions
 import { PrimesComponent } from './primes/primes.component';
 import { SaisieFraisComponent } from './saisie-frais/saisie-frais.component';
 import { NatureMissionsComponent } from './nature-missions/nature-missions.component';
+import { ValiderMissionsComponent } from './valider-missions/valider-missions.component';
 
 const routes: Routes = [
   { path:'tech', component: TechComponent, canActivate:[StatutConnecteService]},
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'primes', component: PrimesComponent},
   { path: 'saisie-frais', component: SaisieFraisComponent },
   { path: 'nature-missions', component: NatureMissionsComponent},
+  { path: 'valider-missions', component: ValiderMissionsComponent},
   { path: '', redirectTo: '/tech', pathMatch: 'full'}
 ];
 
@@ -39,7 +41,8 @@ const routes: Routes = [
     PlanningMissionsComponent,
     PrimesComponent,
     SaisieFraisComponent,
-    NatureMissionsComponent
+    NatureMissionsComponent,
+    ValiderMissionsComponent
   ],
   imports: [
     BrowserModule,
