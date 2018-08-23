@@ -17,15 +17,15 @@
     </tr>
   </thead>
   <tbody>
-    <tr >
-      <td>À ajouter</td>
-      <td>À ajouter</td>
-      <td>À ajouter</td>
-      <td>À ajouter</td>
-      <td>À ajouter</td>
-      <td>À ajouter</td>
-      <td>À ajouter</td>
-      <td>À ajouter</td>
+    <tr *ngFor="let m of missions">
+      <td>{{m.dateDebut}}</td>
+      <td>{{m.dateFin}}</td>
+      <td>{{m.nature}}</td>
+      <td>{{m.villeDepart}}</td>
+      <td>{{m.villeArrivee}}</td>
+      <td>{{m.transport}}</td>
+      <td>{{m.statut}}</td>
+      <td>{{m.prime}}</td>
     </tr>
   </tbody>
 </table>
