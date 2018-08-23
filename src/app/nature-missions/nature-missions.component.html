@@ -2,6 +2,9 @@
 <h1>
   Nature de mission
 </h1>
+
+<app-edit-nature-missions #editModal ></app-edit-nature-missions>
+
 <table class="table">
     <thead>
       <tr>
@@ -14,19 +17,19 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>À ajouter</td>
-        <td>À ajouter</td>
-        <td>À ajouter</td>
-        <td>À ajouter</td>
-        <td>À ajouter</td>
-        <td>À ajouter</td>
+      <tr *ngFor="let n of listeNatureMisions">
+        <td>{{n.libelle}}</td>
+        <td>{{n.facture}}</td>
+        <td>{{n.versementPrime}}</td>
+        <td>{{n.tjm}}</td>
+        <td>{{n.pourcentage}}</td>
+        <td><button type="button" class="close" (click)="editModal.show(n.id)">&times;</button><button type="button" class="close" (click)="natureSuppression(n.id)">&#9998;</button></td>
       </tr>
     </tbody>
   </table>
   <div class="container">
       <div class="row">
-          <div class="col"><h2>Ajouter une nature de mission</h2></div>
-          <div class="col"><button class="btn btn-primary" type="submit">+</button></div>
+          <div class="col"><p>Ajouter une nature de mission</p></div>
+          <div class="col"><button class="btn btn-primary" type="button" (click)="editModal.show()">+</button></div>
       </div>
   </div>

@@ -1,0 +1,54 @@
+
+<div  mdbModal #editModal="mdbModal" class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title" id="myModalLabel">{{Titre}}</h4>
+      </div>
+	  <form  (ngSubmit)="submit()" role="form" #editNatureMission="ngForm" >
+      <div class="modal-body">
+       
+
+  <div class="form-group row">
+    <label for="inputnature" class="col-sm-3 control-label">Nature</label>
+    <div class="col-sm-8">
+    <input mdbInputDirective type="text" name="nature" class="form-control" data-error="Champ vide"  id="inputnature" [(ngModel)]="natureaModifier.libelle" #nature="ngModel" required/>
+  </div>
+    </div>
+  <div class="form-group row">
+    <label for="facture" class="col-sm-3 control-label">Facture</label>
+    <div class="col-sm-3">
+    <select id="sfacture" name="sfacture" class="form-control" [(ngModel)]="natureaModifier.facture" #sfacture="ngModel" required>
+		<option selected>Oui</option>
+		<option>Non</option>
+	</select>
+    </div>
+	<label for="TJM" class="col-sm-3 control-label">TJM</label>
+    <div class="col-sm-2">
+		<input mdbInputDirectives type="number" name="TJM" class="form-control" id="inputtjm" data-error="impossible" [(ngModel)]="natureaModifier.tjm" #TJM="ngModel" [disabled]="natureaModifier.facture=='Non'" min="0" required/>
+    </div>
+   </div>
+   <div class="form-group row">
+    <label for="vprime" class="col-sm-3 control-label">Versement prime</label>
+    <div class="col-sm-3">
+    <select id="svprime" name="svprime" class="form-control" [(ngModel)]="natureaModifier.versementPrime" #svprime="ngModel" [disabled]="natureaModifier.facture=='Non'" required>
+		<option selected>Oui</option>
+		<option>Non</option>
+	</select>
+    </div>
+	<label for="primeperc" class="col-sm-3 control-label">% Prime</label>
+    <div class="col-sm-2">
+		<input mdbInputDirective type="number" name="percent" class="required form-control" data-error="impossible" data-success="right number" id="inputpercent" [(ngModel)]="natureaModifier.pourcentage" #percent="ngModel" [disabled]="(natureaModifier.versementPrime||natureaModifier.facture)=='Non'" min="0" max="10" required/>	
+	</div>
+   </div>
+   
+      </div>
+      <div class="modal-footer remove-top">
+        <button type="button" mdbBtn color="secondary" class="waves-light" aria-label="Close" (click)="editModal.hide()" mdbWavesEffect>Annuler</button>
+        <button type="submit" mdbBtn color="primary" class="relative waves-light" mdbWavesEffect>Valider</button>
+      </div> 
+	  </form>
+    </div>
+  </div>
+
+</div>
