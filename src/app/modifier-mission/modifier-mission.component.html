@@ -1,0 +1,41 @@
+<app-navigation></app-navigation>
+<h1>Modification d'une mission</h1>
+
+<form class="form-check" (ngSubmit)="submit(monForm)" #monForm="ngForm">
+
+  <div class="container">
+    <div class="row">
+      <div class="col">Date de début</div>
+      <div class="col"><input type="date" name="dateDebut" value="mission.dateDebut" [(ngModel)]="mission.dateDebut"></div>
+    </div>
+    <div class="row">
+      <div class="col">Date de fin</div>
+      <div class="col"><input type="date" name="dateFin" value="mission.dateFin" [(ngModel)]="mission.dateFin"></div>
+    </div>
+    <div class="row">
+      <div class="col">Nature</div>
+      <div class="col"><input type="text" name="nature" value="mission.nature" [(ngModel)]="mission.nature"></div>
+    </div>
+    <div class="row">
+      <div class="col">Ville de départ</div>
+      <div class="col"><input type="text" name="depart" value="mission.villeDepart" [(ngModel)]="mission.villeDepart"></div>
+    </div>
+    <div class="row">
+      <div class="col">Ville d'arrivée</div>
+      <div class="col"><input type="text" name="arrivee" value="mission.villeArrivee" [(ngModel)]="mission.villeArrivee"></div>
+    </div>
+    <div class="row">
+      <div class="col">Transport</div>
+      <div class="col"><input type="text" name="transport" value="mission.transport" [(ngModel)]="mission.transport"></div>
+    </div>
+    <div class="row">
+      <div class="col">Estimation prime</div>
+      <div class="col"><input type="text" disabled="disabled" name="prime" value="mission.montantPrime" [(ngModel)]="mission.montantPrime"></div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col"><button type="button" class="btn btn-outline-danger">Annuler</button></div>
+    <div class="col"><button type="submit" class="btn btn-primary">Valider</button> </div>
+  </div>
+
+</form>

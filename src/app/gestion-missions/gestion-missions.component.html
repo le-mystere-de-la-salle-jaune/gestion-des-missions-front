@@ -25,14 +25,13 @@
       <td>{{m.villeArrivee}}</td>
       <td>{{m.transport}}</td>
       <td>{{m.statut}}</td>
-      <td>{{m.prime}}</td>
-      <td><button onclick="modifier()">&#9998;</button><button onclick="supprimer()">&times;</button><button onclick="visualiser()">&#9114;</button></td>
+      <td><a routerLink="{{m.id}}/modifier"><i class="fa fa-pencil" aria-hidden="true"></i></a><a routerLink="{{m.id}}/supprimer"><i class="fa fa-trash" aria-hidden="true"></i></a><a routerLink="{{m.id}}/visualiser"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
     </tr>
   </tbody>
 </table>
 <div class="container">
   <div class="row">
       <div class="col"><h2>Demander une mission</h2></div>
-      <div class="col"><button class="btn btn-primary" type="submit">+</button></div>
+      <div class="col"><button onclick="ajouter()" class="btn btn-primary" type="submit"><i class="fa fa-plus" aria-hidden="true"></i></button></div>
   </div>
 </div>
