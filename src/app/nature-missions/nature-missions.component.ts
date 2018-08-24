@@ -31,6 +31,43 @@ export class NatureMissionsComponent implements OnInit {
 
   }
 
+  /**
+   Validite(Date):string
+   * @param d 
+   * Cette fonction permet d'envoyer une chaine de caractere
+   * si la nature de données a expiré ou non
+   */
+  Validite(d:Date):string
+  {
+    if((d.valueOf()<=Date.now())&&(d.valueOf()!=0)){
+      return "Expiré"
+    }else{
+      return "-"
+    }
+  }
+
+  /**
+   tostringnumber(number):string
+   * @param n
+   * Cette fonction permet de changer les zeros en "-" 
+   */
+  tostringnumber(n:number):string{
+    if(n==0){
+      return "-"
+    }
+    return n+""
+  }
+
+  /**
+   natureSuppression(number) 
+   * @param id 
+   * Cette fonction permet la suppression d'une nature de mission
+   */
+  natureSuppression(id:number){
+    this.service.suppressionNaturemission(id);
+    window.location.reload();
+  }
+
   ngOnInit() {
   }
 

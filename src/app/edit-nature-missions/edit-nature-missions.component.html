@@ -38,7 +38,9 @@
     </div>
 	<label for="primeperc" class="col-sm-3 control-label">% Prime</label>
     <div class="col-sm-2">
-		<input mdbInputDirective type="number" name="percent" class="required form-control" data-error="impossible" data-success="right number" id="inputpercent" [(ngModel)]="natureaModifier.pourcentage" #percent="ngModel" [disabled]="(natureaModifier.versementPrime||natureaModifier.facture)=='Non'" min="0" max="10" required/>	
+
+		<input mdbInputDirective type="number" name="percent" class="required form-control" data-error="impossible" data-success="right number" id="inputpercent" [(ngModel)]="natureaModifier.pourcentage" #percent="ngModel" [disabled]="(natureaModifier.versementPrime=='Non'||natureaModifier.facture=='Non')" min="0" max="10" required/>	
+
 	</div>
    </div>
    

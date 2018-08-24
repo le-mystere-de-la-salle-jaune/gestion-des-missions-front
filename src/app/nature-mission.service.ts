@@ -32,7 +32,7 @@ export class NatureMissionService {
   {
    return this._http.get(`${URL_BACKEND}api/natureMission`)
             .toPromise()
-            .then((data: any) => data.map(el => new NatureMission(el.id,el.libelle,this.translatebooltoyes(el.facturee),this.translatebooltoyes(el.versementPrime),el.tjm,el.pourcentage)));
+            .then((data: any) => data.map(el => new NatureMission(el.id,el.libelle,this.translatebooltoyes(el.facturee),this.translatebooltoyes(el.versementPrime),el.tjm,el.pourcentage,new Date(el.expiration))));
   } 
 
   /**
@@ -45,7 +45,7 @@ export class NatureMissionService {
 
    return from(this._http.get(`${URL_BACKEND}api/natureMission`)
             .toPromise()
-            .then((data: any) => data.filter(el => el.id == id).map(el => new NatureMission(el.id,el.libelle,this.translatebooltoyes(el.facturee),this.translatebooltoyes(el.versementPrime),el.tjm,el.pourcentage))));
+            .then((data: any) => data.filter(el => el.id == id).map(el => new NatureMission(el.id,el.libelle,this.translatebooltoyes(el.facturee),this.translatebooltoyes(el.versementPrime),el.tjm,el.pourcentage,new Date(el.expiration)))));
   } 
 
   /*
@@ -62,6 +62,22 @@ export class NatureMissionService {
       versementPrime:this.translatestringtobool(nMission.versementPrime),
       tjm:nMission.tjm,
       pourcentage:nMission.pourcentage},httpOptions).toPromise()
+      .then((data: any) => {
+        console.log(data);
+      })
+      .catch((error: HttpErrorResponse) => {
+        console.log("error", error);
+      });
+  }
+
+  /*
+  suppressionNaturemission(NatureMission)
+   * Cette Fonction permet de supprimer d'une nature de mission
+   * dans la base de donnees via un API par son ID.
+   */
+  suppressionNaturemission(id:number)
+  {
+    this._http.delete(`${URL_BACKEND}api/natureMission/${id}`,httpOptions).toPromise()
       .then((data: any) => {
         console.log(data);
       })
