@@ -25,13 +25,13 @@
       <td>{{m.villeArrivee}}</td>
       <td>{{m.transport}}</td>
       <td>{{m.statut}}</td>
-      <td><a routerLink="{{m.id}}/modifier"><i class="fa fa-pencil" aria-hidden="true"></i></a><a routerLink="{{m.id}}/supprimer"><i class="fa fa-trash" aria-hidden="true"></i></a><a routerLink="{{m.id}}/visualiser"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+      <td><a routerLink="{{m.id}}/modifier"><i *ngIf="m.statut != 'VALIDEE'" class="fa fa-pencil" aria-hidden="true"></i></a><a data-toggle="confirmation" data-title="Êtes-vous sûr de vouloir supprimer ?" (click)="supprimer(m.id)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
     </tr>
   </tbody>
 </table>
 <div class="container">
   <div class="row">
       <div class="col"><h2>Demander une mission</h2></div>
-      <div class="col"><button onclick="ajouter()" class="btn btn-primary" type="submit"><i class="fa fa-plus" aria-hidden="true"></i></button></div>
+      <div class="col"><button (click)="ajouter()" class="btn btn-primary" type="submit"><i class="fa fa-plus" aria-hidden="true"></i></button></div>
   </div>
 </div>

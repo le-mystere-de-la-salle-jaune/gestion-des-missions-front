@@ -49,8 +49,12 @@ export class ModifierMissionComponent implements OnInit {
     if(monForm.valid){
       console.log(this.mission)
       this.service.modifierMission(this.id,this.mission)
-      .then(()=>this.router.navigateByUrl('gestion-missions'));
+      .subscribe(()=>this.router.navigateByUrl('gestion-missions'));
     }
+  }
+
+  annuler(){
+    this.router.navigateByUrl('gestion-missions')
   }
 
   ngOnInit() {

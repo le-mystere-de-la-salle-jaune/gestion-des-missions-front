@@ -4,6 +4,7 @@ import { Observable , Subject } from 'rxjs';
 import { map } from 'rxjs/operators';
 import {Mission} from './domains';
 import { environment } from '../environments/environment';
+import { ValueTransformer } from '../../node_modules/@angular/compiler/src/util';
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -34,12 +35,16 @@ const httpOptions = {
         return mission$
     }
 
-    modifierMission(id,ngForm){
-        return this._http.post(environment.missionApiUrl+'/'+id,ngForm,{responseType:'text'}).toPromise()
+    modifierMission(id,ngForm):Observable<any>{
+        return this._http.post(environment.missionApiUrl+'/'+id,ngForm,{responseType:'text'}).pipe()
     }
 
-    supprimerMission(id){
-        
+    creerMission(ngForm):Observable<any>{
+        return this._http.post(environment.missionApiUrl,ngForm,{responseType:'text'}).pipe()
+    }
+
+    supprimerMission(id):Observable<any>{
+        return this._http.delete(environment.missionApiUrl+'/'+id,{responseType:'text'}).pipe()
     }
 
   }
