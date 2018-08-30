@@ -16,11 +16,22 @@ import { ModalDirective } from 'angular-bootstrap-md';
 export class NatureMissionsComponent implements OnInit {
 
   listeNatureMissions:NatureMission[]=[];
+  Hello="Helllo"
   // Récupere le modal crée dans le component enfant  
   @ViewChild('editModal') editModal : EditNatureMissionsComponent;
 
   constructor(private service:NatureMissionService,private router: Router) { 
     
+      /**
+     * Ici, est appelé le service permettant d'afficher les multiple nature de mission
+     */
+    this.service.NatureMissionListe().then((NatureMissions:any) => {
+      NatureMissions.forEach(NatureMission => {
+        this.listeNatureMissions.push(NatureMission);
+      });
+    });
+
+    console.log(this.listeNatureMissions);
 
   }
 
@@ -63,17 +74,6 @@ export class NatureMissionsComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    /**
-     * Ici, est appelé le service permettant d'afficher les multiple nature de mission
-     */
-    this.service.NatureMissionListe().then((NatureMissions:any) => {
-      NatureMissions.forEach(NatureMission => {
-        this.listeNatureMissions.push(NatureMission);
-      });
-    });
-
-    console.log(this.listeNatureMissions);
 
   }
 
