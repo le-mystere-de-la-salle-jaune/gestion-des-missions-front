@@ -18,6 +18,7 @@ import { NatureMissionsComponent } from './nature-missions/nature-missions.compo
 import { ValiderMissionsComponent } from './valider-missions/valider-missions.component';
 import { ModifierMissionComponent } from './modifier-mission/modifier-mission.component';
 import { CreationMissionComponent } from './creation-mission/creation-mission.component';
+import { EditNatureMissionsComponent } from './edit-nature-missions/edit-nature-missions.component';
 
 const routes: Routes = [
   { path:'tech', component: TechComponent, canActivate:[StatutConnecteService]},
@@ -47,7 +48,9 @@ const routes: Routes = [
     NatureMissionsComponent,
     ValiderMissionsComponent,
     ModifierMissionComponent,
-    CreationMissionComponent
+    CreationMissionComponent,
+    EditNatureMissionsComponent
+
   ],
   imports: [
     BrowserModule,
