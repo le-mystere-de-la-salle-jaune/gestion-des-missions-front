@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Mission, NatureMision } from '../domains';
+import { Mission, NatureMission } from '../domains';
 import { MissionService } from '../mission-service';
 import { ActivatedRoute, Router } from '../../../node_modules/@angular/router';
 
@@ -11,33 +11,18 @@ import { ActivatedRoute, Router } from '../../../node_modules/@angular/router';
 export class ModifierMissionComponent implements OnInit {
 
   id:string
-  mission:Mission = new Mission(0,"","",new NatureMision(0,"","","",0,0),"","","","",0)
+  mission:Mission= new Mission(null,new Date(),new Date(),new NatureMission(0,"",false,false,0,0,new Date(),new Date()),"","","","",0)
 
   constructor(private route: ActivatedRoute,private service:MissionService, private router:Router) {
     this.id = this.route.snapshot.paramMap.get("id")
     service.avoirMissionParId(this.id).subscribe(
-      value => {this.mission = value;
-                this.mission.dateDebut = this.convertirDateBddAHtml(this.mission.dateDebut);
-                this.mission.dateFin = this.convertirDateBddAHtml(this.mission.dateFin);
-              },
+      value => this.mission = value,
       error => console.log("Error : ",error),
       () => console.log("La récupération des données s'est bien passé")
     )
     
     
    }
-
-   convertirDateBddAHtml(date:string):string{
-     let aux:string
-     aux = date[6]+date[7]+date[8]+date[9]+'-'+date[3]+date[4]+'-'+date[0]+date[1]
-     return aux
-   }
-
-   convertirDateHtmlABdd(date:string):string{
-    let aux:string
-    aux = date[8]+date[9]+'/'+date[5]+date[6]+'/'+date[0]+date[1]+date[2]+date[3]
-    return aux
-  }
 
   majMontantPrime(montant:number):number{
     let res:number = 0

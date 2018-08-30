@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MissionService } from '../mission-service';
-import { Mission, NatureMision } from '../domains';
+import { Mission, NatureMission } from '../domains';
 import { Router } from '../../../node_modules/@angular/router';
 
 @Component({
@@ -9,7 +9,7 @@ import { Router } from '../../../node_modules/@angular/router';
   styleUrls: ['./creation-mission.component.scss']
 })
 export class CreationMissionComponent implements OnInit {
-  mission:Mission= new Mission(null,"","",new NatureMision(0,"","","",0,0),"","","","",0)
+  mission:Mission= new Mission(null,new Date(),new Date(),new NatureMission(0,"",false,false,0,0,new Date(),new Date()),"","","","",0)
   constructor(private service:MissionService, private router:Router) {
     
   }

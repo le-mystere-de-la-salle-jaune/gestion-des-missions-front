@@ -1,6 +1,6 @@
-export class NatureMision
+export class NatureMission
 {
-    constructor(public id:number,public libelle:string,public facture:string,public versementPrime:string,public tjm:number,public pourcentage:number)
+    constructor(public id:number,public libelle:string,public facturee:boolean,public versementPrime:boolean,public tjm:number,public pourcentage:number,dateDebutValidite:Date,dateFinValidite:Date)
     {
    
     }
@@ -11,5 +11,5 @@ export class NatureMision
  * Constructeur de la classe Mission
  */
 export class Mission{
-    constructor( public id:number, public dateDebut:string, public dateFin:string, public nature:NatureMision, public villeDepart:string, public villeArrivee:string, public transport:string, public statut:string, public montantPrime:number ){}
+    constructor( public id:number, public dateDebut:Date, public dateFin:Date, public natureMission:NatureMission, public villeDepart:string, public villeArrivee:string, public transport:string, public statut:string, public montantPrime:number ){}
 }
