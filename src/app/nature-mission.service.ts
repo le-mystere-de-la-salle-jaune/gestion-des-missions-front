@@ -32,7 +32,7 @@ export class NatureMissionService {
   {
    return this._http.get(`${URL_BACKEND}api/natureMission`)
             .toPromise()
-            .then((data: any) => data.map(el => new NatureMission(el.id,el.libelle,this.translatebooltoyes(el.facturee),this.translatebooltoyes(el.versementPrime),el.tjm,el.pourcentage,new Date(el.expiration))));
+            .then((data: any) => data.map(el => new NatureMission(el.id,el.libelle,false,false,el.tjm,el.pourcentage,new Date(el.dateDebutValidite),new Date(el.dateFinValidite))));
   } 
 
   /**
@@ -45,7 +45,7 @@ export class NatureMissionService {
 
    return from(this._http.get(`${URL_BACKEND}api/natureMission`)
             .toPromise()
-            .then((data: any) => data.filter(el => el.id == id).map(el => new NatureMission(el.id,el.libelle,this.translatebooltoyes(el.facturee),this.translatebooltoyes(el.versementPrime),el.tjm,el.pourcentage,new Date(el.expiration)))));
+            .then((data: any) => data.filter(el => el.id == id).map(el => new NatureMission(el.id,el.libelle,false,false,el.tjm,el.pourcentage,new Date(el.dateDebutValidite),new Date(el.dateFinValidite)))));
   } 
 
   /*
@@ -58,8 +58,8 @@ export class NatureMissionService {
   creationNaturemission(nMission:NatureMission)
   {
     this._http.post(`${URL_BACKEND}api/natureMission`,{libelle:nMission.libelle,
-       facturee:this.translatestringtobool(nMission.facture),
-      versementPrime:this.translatestringtobool(nMission.versementPrime),
+       facturee:nMission.facturee,
+      versementPrime:nMission.versementPrime,
       tjm:nMission.tjm,
       pourcentage:nMission.pourcentage},httpOptions).toPromise()
       .then((data: any) => {
@@ -84,19 +84,6 @@ export class NatureMissionService {
       .catch((error: HttpErrorResponse) => {
         console.log("error", error);
       });
-  }
-
-  /*
-  translatebooltoyes(boolean):string
-  * Cette Fonction permet la conversion de boolean en String
-  * afin d'ameliorer l'affichage des information transmis à l'utilisateur
-  */
-  translatebooltoyes(bool:boolean):string{
-    if(bool){
-      return "Oui"
-    }else{
-      return "Non"
-    }
   }
 
   /*
