@@ -17,21 +17,21 @@
     </tr>
   </thead>
   <tbody>
-    <tr >
-      <td>À ajouter</td>
-      <td>À ajouter</td>
-      <td>À ajouter</td>
-      <td>À ajouter</td>
-      <td>À ajouter</td>
-      <td>À ajouter</td>
-      <td>À ajouter</td>
-      <td>À ajouter</td>
+    <tr *ngFor="let m of missions">
+      <td>{{m.dateDebut}}</td>
+      <td>{{m.dateFin}}</td>
+      <td>{{m.nature}}</td>
+      <td>{{m.villeDepart}}</td>
+      <td>{{m.villeArrivee}}</td>
+      <td>{{m.transport}}</td>
+      <td>{{m.statut}}</td>
+      <td><a routerLink="{{m.id}}/modifier"><i *ngIf="m.statut != 'VALIDEE'" class="fa fa-pencil" aria-hidden="true"></i></a><a data-toggle="confirmation" data-title="Êtes-vous sûr de vouloir supprimer ?" (click)="supprimer(m.id)"><i class="fa fa-trash" aria-hidden="true"></i></a></td>
     </tr>
   </tbody>
 </table>
 <div class="container">
   <div class="row">
       <div class="col"><h2>Demander une mission</h2></div>
-      <div class="col"><button class="btn btn-primary" type="submit">+</button></div>
+      <div class="col"><button (click)="ajouter()" class="btn btn-primary" type="submit"><i class="fa fa-plus" aria-hidden="true"></i></button></div>
   </div>
 </div>
