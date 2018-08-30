@@ -8,7 +8,8 @@ const URL_BACKEND = environment.baseUrl;
 
 const httpOptions = {
   headers: new HttpHeaders({
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    "responseType": "text"
   })
 };
 
@@ -32,7 +33,7 @@ export class NatureMissionService {
   {
    return this._http.get(`${URL_BACKEND}api/natureMission`)
             .toPromise()
-            .then((data: any) => data.map(el => new NatureMission(el.id,el.libelle,this.translatebooltoyes(el.facturee),this.translatebooltoyes(el.versementPrime),el.tjm,el.pourcentage,new Date(el.expiration))));
+            .then((data: any) => data.map(el => new NatureMission(el.id,el.libelle,this.translatebooltoyes(el.facturee),this.translatebooltoyes(el.versementPrime),el.tjm,el.pourcentage,new Date(el.dateFinValidite))));
   } 
 
   /**
@@ -43,9 +44,9 @@ export class NatureMissionService {
   NatureMissionListebyid(id:number):Observable<NatureMission>
   {
 
-   return from(this._http.get(`${URL_BACKEND}api/natureMission`)
+   return from(this._http.get(`${URL_BACKEND}api/natureMission`,httpOptions)
             .toPromise()
-            .then((data: any) => data.filter(el => el.id == id).map(el => new NatureMission(el.id,el.libelle,this.translatebooltoyes(el.facturee),this.translatebooltoyes(el.versementPrime),el.tjm,el.pourcentage,new Date(el.expiration)))));
+            .then((data: any) => data.filter(el => el.id == id).map(el => new NatureMission(el.id,el.libelle,this.translatebooltoyes(el.facturee),this.translatebooltoyes(el.versementPrime),el.tjm,el.pourcentage,new Date(el.dateFinValidite)))));
   } 
 
   /*
@@ -61,7 +62,7 @@ export class NatureMissionService {
        facturee:this.translatestringtobool(nMission.facture),
       versementPrime:this.translatestringtobool(nMission.versementPrime),
       tjm:nMission.tjm,
-      pourcentage:nMission.pourcentage},httpOptions).toPromise()
+      pourcentage:nMission.pourcentage}, httpOptions).toPromise()
       .then((data: any) => {
         console.log(data);
       })
