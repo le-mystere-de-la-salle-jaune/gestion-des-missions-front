@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { TechComponent } from './tech/tech.component';
-import { MDBBootstrapModule } from 'angular-bootstrap-md';
+import { MDBBootstrapModule,ModalModule } from 'angular-bootstrap-md';
 import { AuthComponent } from './auth/auth.component';
 import {FormsModule} from "@angular/forms";
 import {StatutConnecteService} from "./auth/statut-connecte.service";
@@ -17,6 +17,8 @@ import { SaisieFraisComponent } from './saisie-frais/saisie-frais.component';
 import { NatureMissionsComponent } from './nature-missions/nature-missions.component';
 import { ValiderMissionsComponent } from './valider-missions/valider-missions.component';
 import { EditNatureMissionsComponent } from './edit-nature-missions/edit-nature-missions.component';
+import { CalendarModule } from 'angular-calendar';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 const routes: Routes = [
@@ -48,10 +50,12 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
-    FormsModule
+    FormsModule,
+    CalendarModule.forRoot()
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,
