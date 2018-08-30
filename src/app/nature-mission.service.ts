@@ -32,7 +32,7 @@ export class NatureMissionService {
   {
    return this._http.get(`${URL_BACKEND}api/natureMission`)
             .toPromise()
-            .then((data: any) => data.map(el => new NatureMission(el.id,el.libelle,false,false,el.tjm,el.pourcentage,new Date(el.dateDebutValidite),new Date(el.dateFinValidite))));
+            .then((data: any) => data.map(el => new NatureMission(el.id,el.libelle,el.facturee,el.versementPrime,el.tjm,el.pourcentage,new Date(el.dateDebutValidite),new Date(el.dateFinValidite))));
   } 
 
   /**
@@ -45,7 +45,7 @@ export class NatureMissionService {
 
    return from(this._http.get(`${URL_BACKEND}api/natureMission`)
             .toPromise()
-            .then((data: any) => data.filter(el => el.id == id).map(el => new NatureMission(el.id,el.libelle,false,false,el.tjm,el.pourcentage,new Date(el.dateDebutValidite),new Date(el.dateFinValidite)))));
+            .then((data: any) => data.filter(el => el.id == id).map(el => new NatureMission(el.id,el.libelle,el.facturee,el.versementPrime,el.tjm,el.pourcentage,new Date(el.dateDebutValidite),new Date(el.dateFinValidite)))));
   } 
 
   /*

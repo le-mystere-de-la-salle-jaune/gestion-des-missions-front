@@ -17,13 +17,13 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let n of listeNatureMisions">
+      <tr *ngFor="let n of listeNatureMissions">
         <td>{{n.libelle}}</td>
         <td>{{translatebooltoyes(n.facture)}}</td>
         <td>{{translatebooltoyes(n.versementPrime)}}</td>
         <td>{{tostringnumber(n.tjm)}}</td>
         <td>{{tostringnumber(n.pourcentage)}}</td>
-        <td><div *ngIf="Validite(n.expiration)=='-'"><i class="fa fa-pencil fa-2x" aria-hidden="true" (click)="editModal.show(n.id)" style="margin-right:15px"></i><i class="fa fa-trash fa-2x" aria-hidden="true" (click)="natureSuppression(n.id)"></i></div></td>
+        <td><div *ngIf="Validite(n.dateFinValidite)=='-'"><i class="fa fa-pencil fa-2x" aria-hidden="true" (click)="editModal.show(n.id)" style="margin-right:15px"></i><i class="fa fa-trash fa-2x" aria-hidden="true" (click)="natureSuppression(n.id)"></i></div></td>
       </tr>
     </tbody>
   </table>
