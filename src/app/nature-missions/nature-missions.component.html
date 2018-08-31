@@ -19,8 +19,8 @@
     <tbody>
       <tr *ngFor="let n of listeNatureMisions">
         <td>{{n.libelle}}</td>
-        <td>{{n.facture}}</td>
-        <td>{{n.versementPrime}}</td>
+        <td>{{translatebooltoyes(n.facture)}}</td>
+        <td>{{translatebooltoyes(n.versementPrime)}}</td>
         <td>{{tostringnumber(n.tjm)}}</td>
         <td>{{tostringnumber(n.pourcentage)}}</td>
         <td><div *ngIf="Validite(n.expiration)=='-'"><i class="fa fa-pencil fa-2x" aria-hidden="true" (click)="editModal.show(n.id)" style="margin-right:15px"></i><i class="fa fa-trash fa-2x" aria-hidden="true" (click)="natureSuppression(n.id)"></i></div></td>

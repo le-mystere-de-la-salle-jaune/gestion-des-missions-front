@@ -11,6 +11,8 @@ import { ActivatedRoute, Router } from '../../../node_modules/@angular/router';
 export class ModifierMissionComponent implements OnInit {
 
   id:string
+  dateDebutHtml:string = ""
+  dateFinHtml:string = ""
   mission:Mission= new Mission(null,new Date(),new Date(),new NatureMission(0,"",false,false,0,0,new Date(),new Date()),"","","","",0)
 
   constructor(private route: ActivatedRoute,private service:MissionService, private router:Router) {
@@ -20,7 +22,11 @@ export class ModifierMissionComponent implements OnInit {
       error => console.log("Error : ",error),
       () => console.log("La récupération des données s'est bien passé")
     )
+    this.dateDebutHtml = this.convertirDateToStringHtml(this.mission.dateDebut)
+    this.dateFinHtml = this.convertirDateToStringHtml(this.mission.dateFin)
     
+    console.log("dateDebutHtml : "+this.dateDebutHtml)
+    console.log("dateFinHtml : "+this.dateFinHtml)
     
    }
 
@@ -40,6 +46,28 @@ export class ModifierMissionComponent implements OnInit {
 
   annuler(){
     this.router.navigateByUrl('gestion-missions')
+  }
+
+  convertirDateToStringHtml(dateBdd:Date){
+    console.log(dateBdd)
+    let date:Date = new Date(dateBdd)
+    let res:string = ""
+    res+=date.getFullYear()+'-'
+    console.log(date.getMonth().toString)
+    if(date.getMonth().toString.length == 1){
+      res+="0"+date.getMonth()+'-'
+    }
+    else{
+      res+=date.getMonth()
+    }
+    console.log("Taille de date.getDate : "+date.getDate().toString.length)
+    if(date.getDate().toString.length == 0){
+      res+="0"+date.getDate()
+    }
+    else{
+      res+=date.getDate()
+    }
+    return res
   }
 
   ngOnInit() {

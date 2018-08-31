@@ -16,7 +16,7 @@ import { ModalDirective } from 'angular-bootstrap-md';
 
   @ViewChild('editModal') public editModal : ModalDirective; // Pop-up #editNatureMission="ngForm"
 
-  natureaModifier= new NatureMission(undefined,undefined,"Non","Non",0,0,null); // Nature de mission de base avec contrôle minimal   
+  natureaModifier= new NatureMission(undefined,undefined,false,false,0,0,new Date,null); // Nature de mission de base avec contrôle minimal   
 
   Titre:string; // Titre du pop-up
   id:number; // ID de la nature de mission.
@@ -41,7 +41,7 @@ import { ModalDirective } from 'angular-bootstrap-md';
     }else{
       // Dans le cas, Où il y aurait une nature de mission à modifier 
       this.Titre="Creation d'une nature de mission";
-      this.natureaModifier = new NatureMission(undefined,undefined,"Non","Non",0,0,null);
+      this.natureaModifier = new NatureMission(undefined,undefined,false,false,0,0,new Date,null);
 
     }
     this.editModal.show();
@@ -60,6 +60,8 @@ import { ModalDirective } from 'angular-bootstrap-md';
   }
 
 
+
+
   /**
    submit() 
    * Cette fonction permet d'affecter le resultal
@@ -69,9 +71,9 @@ import { ModalDirective } from 'angular-bootstrap-md';
    */
   submit()
   {
-    if(this.natureaModifier.facture==("Non"||undefined||null)){
-      this.natureaModifier.facture="Non";
-      this.natureaModifier.versementPrime="Non";
+    if(this.natureaModifier.facturee==(false||undefined||null)){
+      this.natureaModifier.facturee=false;
+      this.natureaModifier.versementPrime=false;
       this.natureaModifier.tjm=0;
       this.natureaModifier.pourcentage=0;
       this.service.creationNaturemission(this.natureaModifier)
@@ -81,8 +83,8 @@ import { ModalDirective } from 'angular-bootstrap-md';
         this.service.suppressionNaturemission(this.id)
       }
     }else{
-      if(this.natureaModifier.versementPrime==("Non"||undefined||null)){
-        this.natureaModifier.versementPrime="Non";
+      if(this.natureaModifier.versementPrime==(false||undefined||null)){
+        this.natureaModifier.versementPrime=false;
         this.natureaModifier.pourcentage=0;
         this.service.creationNaturemission(this.natureaModifier)
         this.editModal.hide()
@@ -103,5 +105,19 @@ import { ModalDirective } from 'angular-bootstrap-md';
     }
 
   }
+
+   /*
+  translatebooltoyes(boolean):string
+  * Cette Fonction permet la conversion de boolean en String
+  * afin d'ameliorer l'affichage des information transmis à l'utilisateur
+  */
+ translatebooltoyes(bool:boolean):string{
+  if(bool){
+    return "Oui"
+  }else{
+    return "Non"
+  }
+}
+
 
 }
