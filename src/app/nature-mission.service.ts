@@ -86,18 +86,20 @@ export class NatureMissionService {
       });
   }
 
-  /*
+
+   /*
   translatestringtobool(string):boolean{
   * Cette fonction permet la conversion de String en boolean
   * afin de traduire la volonté de utilistateur à la base de donnees 
   * de façon optimiser. 
   */
-  translatestringtobool(st:string):boolean{
-    if(st=="Oui"){
-      return true
-    }else{
-      return false
-    }
+ translatestringtobool(st:string):boolean{
+  if(st=="Oui"){
+    return true
+  }else{
+    return false
   }
+}
+
 
 }

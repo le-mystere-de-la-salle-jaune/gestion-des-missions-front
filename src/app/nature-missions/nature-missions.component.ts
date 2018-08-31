@@ -16,7 +16,7 @@ import { ModalDirective } from 'angular-bootstrap-md';
 export class NatureMissionsComponent implements OnInit {
 
   listeNatureMissions:NatureMission[]=[];
-  Hello="Helllo"
+  Hello="Hello"
   // Récupere le modal crée dans le component enfant  
   @ViewChild('editModal') editModal : EditNatureMissionsComponent;
 
@@ -44,7 +44,7 @@ export class NatureMissionsComponent implements OnInit {
   Validite(d:Date):string
   {
     console.log(d)
-    if((d.valueOf()<=Date.now())&&(d.valueOf()!=0)){
+    if( d && (d.valueOf()<=Date.now()) && (d.valueOf()!=0)){
       return "Expiré"
     }else{
       return "-"
@@ -72,6 +72,19 @@ export class NatureMissionsComponent implements OnInit {
     this.service.suppressionNaturemission(id);
     window.location.reload();
   }
+
+    /*
+  translatebooltoyes(boolean):string
+  * Cette Fonction permet la conversion de boolean en String
+  * afin d'ameliorer l'affichage des information transmis à l'utilisateur
+  */
+ translatebooltoyes(bool:boolean):string{
+  if(bool){
+    return "Oui"
+  }else{
+    return "Non"
+  }
+}
 
   ngOnInit() {
 

@@ -24,7 +24,7 @@ export class NavigationComponent implements OnInit {
    */
   ngOnInit(): void {
     
-   /* this._authSrv.collaborateurConnecteObs.subscribe(
+   this._authSrv.collaborateurConnecteObs.subscribe(
       value => this.collab = value
     )
     let i:number
@@ -39,7 +39,7 @@ export class NavigationComponent implements OnInit {
       else if(role == "ROLE_UTILISATEUR"){
         this.testEmploye = true
       }
-    }*/
+    }
   }
 
 }
