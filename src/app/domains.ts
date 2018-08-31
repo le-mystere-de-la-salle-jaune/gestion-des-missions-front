@@ -11,6 +11,17 @@ export class NatureMission
 }
 
 /**
+ * Creation de l'objet Nature de Mission VM afin de l'afficher dans le modal
+ */
+export class NatureMissionVM
+{
+    constructor(public id:number,public libelle:string,public facturee:string,public versementPrime:string,public tjm:number,public pourcentage:number,dateDebutValidite:Date,dateFinValidite:Date)
+    {
+   
+    }
+}
+
+/**
  * Constructeur de la classe Mission
  */
 export class Mission{
