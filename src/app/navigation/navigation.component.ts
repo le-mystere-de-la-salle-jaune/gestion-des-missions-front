@@ -24,7 +24,7 @@ export class NavigationComponent implements OnInit {
    */
   ngOnInit(): void {
     
-    this._authSrv.collaborateurConnecteObs.subscribe(
+   this._authSrv.collaborateurConnecteObs.subscribe(
       value => this.collab = value
     )
     let i:number
